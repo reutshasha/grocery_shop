@@ -1,0 +1,24 @@
+<app-header [startDate]="formatDate(headerStartDate)" [endDate]="formatDate(headerEndDate)"></app-header>
+<div class="date-filter">
+  <label for="startDate">Start Date:</label>
+  <input id="startDate" type="date" [(ngModel)]="startDate" />
+
+  <label for="endDate">End Date:</label>
+  <input id="endDate" type="date" [(ngModel)]="endDate" />
+
+  <button (click)="applyFilter()">Filter</button>
+</div>
+
+<div *ngIf="transactions$ | async as filteredTransactions; else loading">
+  <div class="chart-container">
+    <canvas baseChart [datasets]="chartData.datasets" [labels]="chartData.labels" [options]="chartOptions"
+      [type]="'line'">
+    </canvas>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Loading transactions...</p>
+</ng-template>
+
+<app-footer></app-footer>

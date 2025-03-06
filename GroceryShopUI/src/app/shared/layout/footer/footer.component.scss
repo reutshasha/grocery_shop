@@ -1,0 +1,23 @@
+.bottom-navigation-links {
+  display: flex;
+  gap: 2.5rem;
+  padding: 1.5rem 2.5rem 1.5rem 2.5rem;
+  background: #7db6d5;
+
+  &>div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  & a {
+    color: var(--color-white);
+    text-decoration: underline;
+    line-height: 1.6;
+  }
+}
+
+app-footer {
+  display: block;
+  background-color: lightblue;
+  padding: 1rem;
+}
